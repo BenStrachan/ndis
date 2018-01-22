@@ -1,0 +1,37 @@
+<!-- Blog Section -->
+<section id="blog" class="section">
+  <!-- Container Starts -->
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Recent Blog</h2>
+      <hr class="lines">
+    </div>
+    <div class="row">
+      <div class="col-md-12 justify-content-md-center">
+        <div class="blogs-slider owl-carousel owl-theme">
+          <% Blog.find_each do |blog| %>
+            <div class="blog-item">
+              <div class="blog-item-wrapper">
+                <div class="blog-item-img">
+                  <a href="<%= post_path(blog) %>">
+                    <%= image_tag blog.photo.url, class: 'img-responsive', alt: "Mobile Physiotherapist" %>
+                  </a>
+                </div>
+                <div class="blog-item-text">
+                  <h3>
+                    <a href="<%= post_path(blog) %>"><%= blog.title %></a>
+                  </h3>
+                  <p>
+                    <%= blog.description %>
+                  </p>
+                  <a href="<%= post_path(blog) %>" class="btn-rm">Read More <i class="lnr lnr-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- blog Section End -->

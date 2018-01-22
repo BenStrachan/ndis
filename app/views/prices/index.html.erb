@@ -1,0 +1,30 @@
+<% content_for :page_heading, 'Service Fees'%>
+
+<div class="table-responsive">
+  <table class="table table-flat">
+    <thead>
+      <tr>
+        <th>Practitioner</th>
+        <th>Name</th>
+        <th>Item number</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @billable_items.each do |item| %>
+      <tr>
+        <td><%= item.practitioner_full_name %></td>
+        <td><%= item.name %></td>
+        <td><%= item.item_number %></td>
+        <td><%= format_money item.price %></td>
+      </tr>
+      <% end %>
+      <% if @billable_items.blank? %>
+      <tr>
+        <td colspan="4">Not found any prices</td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

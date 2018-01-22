@@ -1,0 +1,29 @@
+<!-- Team section Start -->
+<section id="team" class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Our Team</h2>
+      <hr class="lines">
+    </div>
+    <div class="row">
+      <div class="col-md-12 justify-content-md-center">
+        <div class="practitioners-slider owl-carousel owl-theme">
+          <% Practitioner.find_each do |prac| %>
+            <div class="single-team">
+              <a href="<%= practitioner_path(prac) %>">
+                <%= image_tag prac.avatar.url, class: 'img-responsive', alt: "Home Physiotherapist" %>
+              </a>
+              <div class="team-details">
+                <div class="team-inner">
+                  <a href="<%= practitioner_path(prac) %>" class="team-title"><%= prac.first_name %> <%= prac.last_name %></a>
+                  <p><%= prac.profession %> <br><%= prac.registration %></p>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Team section End -->
