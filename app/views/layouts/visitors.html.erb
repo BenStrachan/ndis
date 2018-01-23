@@ -6,7 +6,7 @@
     <% else %>
       <title>OnePage</title>
     <% end %>
-    
+
     <%= csrf_meta_tags %>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -27,7 +27,7 @@
       if($("#booking-address").length) {
         new google.maps.places.Autocomplete($('#booking-address')[0], {
           types: ['geocode'],
-          componentRestrictions: { 'country': 'GB' }
+          componentRestrictions: { 'country': 'AU' }
         });
       }
     </script>
